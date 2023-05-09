@@ -7,12 +7,14 @@ public class FirstTask {
             public void run() {
                 long startTime = System.currentTimeMillis();
                 while (true) {
-                    long currentTime = System.currentTimeMillis();
-                    System.out.println(currentTime - startTime);
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
+                    }
+                    long timeFromStart = (System.currentTimeMillis() - startTime)/1000;
+                    if(timeFromStart % 5 != 0) {
+                        System.out.println(Math.round(timeFromStart));
                     }
                 }
             }
